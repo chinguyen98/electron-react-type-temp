@@ -1,5 +1,7 @@
-const APP = { QUIT: 'QUIT_APP' };
+const APP = { QUIT: 'app:quit' };
 
-module.exports = {
+const CHANNELS = {
   APP,
 };
+
+export default CHANNELS;

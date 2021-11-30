@@ -1,3 +1,6 @@
 import { contextBridge } from 'electron';
+import appRenderer from './app';
 
-contextBridge.exposeInMainWorld('api', {});
+contextBridge.exposeInMainWorld('api', {
+  ...appRenderer,
+});

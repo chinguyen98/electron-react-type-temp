@@ -1,10 +1,12 @@
-const CHANNELS = require('./../channels.ts');
-const { ipcRenderer } = require('electron');
+import { ipcRenderer } from 'electron';
+import CHANNELS from '../channels';
 
 const quitApp = () => {
   ipcRenderer.send(CHANNELS.APP.QUIT);
 };
 
-module.exports = {
+const appRenderer = {
   quitApp,
 };
+
+export default appRenderer;
