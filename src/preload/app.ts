@@ -1,4 +1,5 @@
-import { ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer } from 'electron';
+import { IBridgeAppApi } from '../bridgeInterface';
 import CHANNELS from '../channels';
 
 const quitApp = () => {
@@ -9,9 +10,11 @@ const writeSomeThing = (something: string) => {
   ipcRenderer.invoke(CHANNELS.APP.WRITE_ST, something);
 };
 
-const appRenderer = {
+const appRenderer: IBridgeAppApi = {
   quitApp,
   writeSomeThing,
 };
 
-export default appRenderer;
+contextBridge.exposeInMainWorld('appApi', {
+  ...appRenderer,
+});
