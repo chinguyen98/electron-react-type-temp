@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 function render() {
-  ReactDOM.render(<div>Hello ElectronJS</div>, document.getElementById('root'));
+  ReactDOM.render(<App />, document.getElementById('root'));
 }
 render();
