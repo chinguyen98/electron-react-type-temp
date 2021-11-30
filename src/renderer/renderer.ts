@@ -26,6 +26,12 @@
  * ```
  */
 
+declare global {
+  interface Window {
+    api?: any;
+  }
+}
+
 import './index.css';
 import './index.tsx';
 
