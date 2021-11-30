@@ -26,9 +26,14 @@
  * ```
  */
 
+export interface IElectronAPI {
+  quitApp: () => Promise<void>;
+  writeSomeThing: (something: string) => Promise<void>;
+}
+
 declare global {
   interface Window {
-    api?: any;
+    api?: IElectronAPI;
   }
 }
 
