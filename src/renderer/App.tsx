@@ -4,11 +4,11 @@ const App: VFC = () => {
   const [inputVal, setInputVal] = useState<string>('');
 
   const handleQuitApp = () => {
-    window.appApi.quitApp();
+    window.apiApp.quitApp();
   };
 
   const handlePrintToMainProcess = () => {
-    window.appApi.writeSomeThing(inputVal);
+    window.apiApp.writeSomeThing(inputVal);
   };
 
   return (

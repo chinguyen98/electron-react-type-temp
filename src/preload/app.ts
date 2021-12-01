@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
+import { API_APP } from '../bridgeApiEntries';
 import { IBridgeAppApi } from '../bridgeInterface';
 import CHANNELS from '../channels';
 
@@ -15,6 +16,6 @@ const appRenderer: IBridgeAppApi = {
   writeSomeThing,
 };
 
-contextBridge.exposeInMainWorld('appApi', {
+contextBridge.exposeInMainWorld(API_APP, {
   ...appRenderer,
 });

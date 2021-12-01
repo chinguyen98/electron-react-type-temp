@@ -1,8 +1,9 @@
+import { API_APP } from '../bridgeApiEntries';
 import { IBridgeAppApi } from '../bridgeInterface';
 
 declare global {
   interface Window {
-    appApi?: IBridgeAppApi;
+    [API_APP]?: IBridgeAppApi;
   }
 }
 
