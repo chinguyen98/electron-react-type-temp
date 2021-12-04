@@ -11,10 +11,16 @@ const App: VFC = () => {
     window.apiApp.writeSomeThing(inputVal);
   };
 
+  const handleGetAsyncRandomNumber = async () => {
+    const number = await window.apiApp.asyncGetRandom();
+    alert(number);
+  };
+
   return (
     <div>
       <p>Hello ElectronJS</p>
       <button onClick={handleQuitApp}>Quit App</button>
+      <button onClick={handleGetAsyncRandomNumber}>Get Random Number</button>
       <input
         type="text"
         value={inputVal}
