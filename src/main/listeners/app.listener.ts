@@ -13,9 +13,16 @@ const writeSomeThing = (): void => {
   });
 };
 
+const getAppVersion = () => {
+  ipcMain.handle(CHANNELS.APP.GET_VERSION, async (): Promise<string> => {
+    return app.getVersion();
+  });
+};
+
 const appListener = (): void => {
   quitApp();
   writeSomeThing();
+  getAppVersion();
 };
 
 export default appListener;

@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer, app } from 'electron';
 import { API_APP } from '../bridgeApiEntries';
 import { IBridgeAppApi } from '../bridgeInterface';
 import CHANNELS from '../channels';
@@ -19,10 +19,15 @@ const asyncGetRandom = async (): Promise<number> => {
   });
 };
 
+const getAppVersion = async (): Promise<string> => {
+  return await ipcRenderer.invoke(CHANNELS.APP.GET_VERSION);
+};
+
 const appRenderer: IBridgeAppApi = {
   quitApp,
   writeSomeThing,
   asyncGetRandom,
+  getAppVersion,
 };
 
 contextBridge.exposeInMainWorld(API_APP, {

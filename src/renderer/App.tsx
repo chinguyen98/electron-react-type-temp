@@ -16,11 +16,17 @@ const App: VFC = () => {
     alert(number);
   };
 
+  const showVersion = async () => {
+    const version = await window.apiApp.getAppVersion();
+    console.log({ version });
+  };
+
   return (
     <div>
       <p>Hello ElectronJS</p>
       <button onClick={handleQuitApp}>Quit App</button>
       <button onClick={handleGetAsyncRandomNumber}>Get Random Number</button>
+      <button onClick={showVersion}>Show version</button>
       <input
         type="text"
         value={inputVal}
