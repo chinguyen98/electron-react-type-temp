@@ -19,10 +19,21 @@ const getAppVersion = () => {
   });
 };
 
+const getRandNum = () => {
+  ipcMain.handle(CHANNELS.APP.GET_RAND_NUM, async (): Promise<number> => {
+    return new Promise((resolve, _) => {
+      setTimeout(() => {
+        resolve(Math.random());
+      }, 3000);
+    });
+  });
+};
+
 const appListener = (): void => {
   quitApp();
   writeSomeThing();
   getAppVersion();
+  getRandNum();
 };
 
 export default appListener;

@@ -12,11 +12,8 @@ const writeSomeThing = (something: string) => {
 };
 
 const asyncGetRandom = async (): Promise<number> => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(Math.random());
-    }, 3000);
-  });
+  const number = (await ipcRenderer.invoke(CHANNELS.APP.GET_RAND_NUM)) as number;
+  return number;
 };
 
 const getAppVersion = async (): Promise<string> => {
